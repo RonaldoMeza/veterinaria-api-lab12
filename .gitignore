@@ -1,0 +1,15 @@
+# Configuración local y secretos: no deben llegar al repositorio.
+appsettings.Local.json
+.env
+.env.*
+!.env.example
+secrets.json
+*.user
+*.suo
+*.log
+publish/
+
+# Artefactos de compilación y del editor.
+bin/
+obj/
+.vs/

@@ -1,0 +1,15 @@
+.git
+.gitignore
+.vs
+bin
+obj
+Dockerfile
+*.user
+*.suo
+*.log
+.env
+.env.*
+appsettings.Local.json
+secrets.json
+docs
+database
