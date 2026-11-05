@@ -8,26 +8,26 @@ Implementé dos reglas de negocio: no se admite más de un propietario con el mi
 
 ## B. Repositorio y estructura
 
-- URL del repositorio GitHub: **pendiente de publicar**.
+- URL del repositorio GitHub: https://github.com/RonaldoMeza/veterinaria-api-lab12.git
 - Script SQL: `database/veterinaria_db.sql`.
 - Modelos Scaffold: `Models/Propietario.cs`, `Models/Mascota.cs` y `Models/VeterinariaContext.cs`.
 - Controladores: `Controllers/PropietariosController.cs` y `Controllers/MascotasController.cs`.
 
 ## C. API en la nube
 
-- URL de API publicada: **pendiente**.
-- URL de Swagger publicado: **pendiente**.
-- Hosting y base de datos: **pendientes de evaluar y configurar**.
+- URL de Swagger publicado: https://veterinaria-api-lab12.onrender.com/swagger
+- Hosting de la API: Render, mediante un Web Service con Docker en el plan gratuito.
+- Base de datos: Azure SQL Database, compatible con SQL Server.
 
-No se debe completar esta sección hasta haber desplegado la API, ejecutado el script en la base de datos en la nube y comprobado Swagger. La cadena de conexión se configurará como secreto o variable de entorno, nunca en Git.
+La API se desplegó en Render y se conecta a Azure SQL Database mediante una variable de entorno. La cadena de conexión no se publica en GitHub.
 
 ## D. Guía de pruebas en Swagger
 
 ### Preparación
 
-Pruebas locales verificadas: `GET /api/Propietarios`, `GET /api/Propietarios/1`, `GET /api/Propietarios/1/mascotas`, filtro combinado de mascotas y documento OpenAPI respondieron 200 el 04/11/2026. Iniciar la API con `dotnet run --launch-profile https` y abrir `https://localhost:7141/swagger` (o usar la URL HTTP mostrada por la terminal).
+Las capturas definitivas deben realizarse sobre la API desplegada: `https://veterinaria-api-lab12.onrender.com/swagger`. Las pruebas locales sirvieron como validación previa; para la entrega se utilizará la URL de Render.
 
-En cada caso: abrir la operación, seleccionar **Try it out**, completar los parámetros o JSON, pulsar **Execute** y capturar Request URL, código y Response body. Repetir la misma secuencia contra la URL publicada para las capturas finales.
+En cada caso: abrir la operación, seleccionar **Try it out**, completar los parámetros o JSON, pulsar **Execute** y capturar Request URL, código y Response body. La URL base de todas las pruebas es `https://veterinaria-api-lab12.onrender.com`.
 
 | # | Operación y solicitud | JSON / pasos específicos | Resultado esperado y captura |
 |---:|---|---|---|
@@ -58,13 +58,13 @@ No eliminar propietarios o mascotas semilla durante las pruebas. Las pruebas 19 
 
 1. Utilicé Database First: elaboré el script SQL y después generé las entidades y el contexto mediante Scaffold de Entity Framework Core.
 2. Apliqué Data Annotations y validaciones de negocio para que la API responda con códigos HTTP acordes al resultado de cada operación.
-3. Configuré Swagger y la cadena de conexión local mediante User Secrets, evitando guardar credenciales en el proyecto.
+3. Configuré Swagger para el entorno publicado y la cadena de conexión como variable de entorno en Render, evitando guardar credenciales en el proyecto.
 
 ## F. Conclusiones
 
 1. Aprendí a desarrollar una API REST con controladores, rutas, operaciones asíncronas y respuestas HTTP apropiadas.
 2. Implementé consultas LINQ con Entity Framework Core para filtrar, consultar relaciones y administrar datos en SQL Server.
-3. Dejé preparada la aplicación para publicar su configuración sensible mediante secretos; la validación del despliegue en la nube se completará cuando se elija el proveedor y se publique la API.
+3. Publiqué la API en Render conectada a Azure SQL Database y comprobé que Swagger está disponible en la nube.
 
 ## G. Checklist final
 
@@ -77,6 +77,6 @@ No eliminar propietarios o mascotas semilla durante las pruebas. Las pruebas 19 
 - [x] Compilación local sin errores ni advertencias.
 - [x] Pruebas GET locales verificadas.
 - [ ] Ejecutar y capturar todas las pruebas de la tabla.
-- [ ] Publicar repositorio y completar su URL.
-- [ ] Elegir y comprobar proveedores gratuitos vigentes.
-- [ ] Desplegar base de datos y API, configurar secreto y repetir pruebas en producción.
+- [x] Repositorio publicado sin credenciales ni cadenas de conexión.
+- [x] API desplegada en Render y base de datos desplegada en Azure SQL Database.
+- [ ] Ejecutar las pruebas de la tabla en Render y adjuntar sus capturas.
